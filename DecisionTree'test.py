@@ -1,6 +1,6 @@
 '''
 ==================
-Xiang's test案例
+test案例
 ==================
 '''
 import pandas as pd
@@ -12,19 +12,20 @@ from sklearn.model_selection import cross_val_score
 import numpy as np
 pd.set_option('display.max_columns', None)
 #
-traindata = pd.read_csv(r"C:\Users\86177\Desktop\test\dess\data-train.csv")
-testdata=pd.read_csv(r"C:\Users\86177\Desktop\test\dess\data-test.csv")
+traindata = pd.read_csv(r"C:\Users\86177\Desktop\test\dess\data-train.csv")#这里可以添加自己的数据集
+testdata=pd.read_csv(r"C:\Users\86177\Desktop\test\dess\data-test.csv")#这里可以添加自己的数据集
+#也可以选择sklearn中自带的数据集
 # print(data)
-# exit(1)
+
 #以下都是在训练集上运行的，调好参数再去测试集，记住别直接在测试集运行，搞个备份
 x = traindata.iloc[:, traindata.columns != "target"]#确定label和非label
 y = traindata.iloc[:, traindata.columns == "target"]
 # print(x)
 # print(y)
-# exit(1)
+
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(x, y, test_size=0.3)
 # print(Xtest)
-# exit(1)
+
 # for i in [Xtrain, Xtest, Ytrain, Ytest]:
 #     i.index = range(i.shape[0])
 '''-------以下三块代码不要同时运行，会很慢，在第三块找到合适的模型参数后可以回来运行下面这块---------'''
